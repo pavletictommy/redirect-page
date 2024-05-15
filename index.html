@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirect in base al dispositivo</title>
+    <script type="text/javascript">
+        function redirectToAppropriateStore() {
+            var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+            // Controlla se il dispositivo è iOS
+            if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                window.location.href = "https://apps.apple.com/it/app/join-the-night/id6447557708";
+            }
+            // Controlla se il dispositivo è Android
+            else if (/android/i.test(userAgent)) {
+                window.location.href = "https://play.google.com/store/apps/details?id=com.jointhenight.jointhenight";
+            }
+            // Altrimenti, rimane sulla stessa pagina o mostra un messaggio
+            else {
+                alert("Per favore, usa un dispositivo Apple o Android per accedere al link appropriato.");
+            }
+        }
+    </script>
+</head>
+<body onload="redirectToAppropriateStore()">
+    <h1>Reindirizzamento in corso...</h1>
+</body>
+</html>
